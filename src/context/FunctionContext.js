@@ -45,10 +45,11 @@ export const FunctionProvider = (props) => {
   };
 
   const fetchCart = async () => {
+    let staff = localStorage.getItem("staff_id");
     try {
       let res = await axios.get(`/api/cart`, {
         data: {
-          staff_id: 1,
+          staff_id: staff,
         },
       });
       let result = res.data;

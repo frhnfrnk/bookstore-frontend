@@ -1,4 +1,5 @@
 import {
+  faAdd,
   faBars,
   faBox,
   faCar,
@@ -18,6 +19,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export const MenuManagerItems = [
+  {
+    title: "Add Book",
+    icon: faAdd,
+    url: "/addbook",
+  },
   {
     title: "Inventory",
     icon: faBox,

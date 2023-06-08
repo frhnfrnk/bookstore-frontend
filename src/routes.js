@@ -12,7 +12,7 @@ const Store = React.lazy(() => import("./page/Store"));
 const History = React.lazy(() => import("./page/History"));
 const Language = React.lazy(() => import("./page/Language"));
 const Book = React.lazy(() => import("./page/Book"));
-
+const addBook = React.lazy(() => import("./page/Addbook"));
 // const Byusername = React.lazy(() => import('./views/menu/byusername/Byusername'))
 // const ByTextSeacrh = React.lazy(() => import('./views/menu/bytextsearch/bytextsearch'))
 // const DataVisualization = React.lazy(() => import('./views/pages/datavisualization/datavisualization'))
@@ -32,6 +32,7 @@ const routes = [
   { path: "/language", name: "Language", element: Language },
   { path: "/language", name: "Language", element: Language },
   { path: "/book", name: "Book", element: Book },
+  { path: "/addbook", name: "AddBook", element: addBook },
 ];
 
 export default routes;
