@@ -26,6 +26,7 @@ export default function AddBook() {
   const [publication_year, setPublication_year] = useState("");
 
   const [isAlert, setIsAlert] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     let store_id = localStorage.getItem("store_id");
@@ -56,6 +57,7 @@ export default function AddBook() {
     };
 
     try {
+      setIsLoading(true);
       let res = await axios.post(`api/book/`, data);
       let resData = res.data;
       if (resData.book_id) {
@@ -80,6 +82,7 @@ export default function AddBook() {
         setCondition_value("");
         setPublication_year("");
       }
+      setIsLoading(false);
     } catch (err) {
       toast.error("Failed", {
         position: "top-center",
@@ -89,6 +92,7 @@ export default function AddBook() {
         draggable: true,
         progress: undefined,
       });
+      setIsLoading(false);
     }
   };
 
@@ -225,7 +229,32 @@ export default function AddBook() {
                 handleAddBook();
               }}
             >
-              Add Book
+              {isLoading ? (
+                <div class="flex flex-row justify-center items-center gap-2">
+                  <svg
+                    class="animate-spin h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      class="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      stroke-width="4"
+                    ></circle>
+                    <path
+                      class="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                    ></path>
+                  </svg>{" "}
+                </div>
+              ) : (
+                <span>Add Book</span>
+              )}
             </button>
           </div>
         </form>

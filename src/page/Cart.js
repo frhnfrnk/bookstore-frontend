@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { FunctionContext } from "../context/FunctionContext";
 import { Helmet } from "react-helmet";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Cart() {
   const {
@@ -29,6 +31,7 @@ export default function Cart() {
         <Helmet>
           <title>Cart</title>
         </Helmet>
+        <ToastContainer />
         <div className="header">
           <h1 className="text-slate-700 text-3xl font-sans my-3">Cart</h1>
           <div></div>

@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet";
 import axios from "axios";
 import { faCartShopping, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Store() {
   const { bookList, setBookList, functions, cart } =
@@ -86,13 +88,27 @@ export default function Store() {
     };
 
     let res = await axios.put(`/api/book/${id}/`, data);
-    console.log(res);
+    toast.success("Book updated successfully!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
     fetchData();
   };
 
   const handleDelete = async (id) => {
     let res = await axios.delete(`/api/book/${id}/`);
-    console.log(res);
+    toast.success("Book deleted successfully!", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
     fetchData();
   };
 
@@ -102,6 +118,7 @@ export default function Store() {
         <Helmet>
           <title>Booklist</title>
         </Helmet>
+        <ToastContainer />
         <div className="header">
           <h1 className="text-slate-700 text-3xl font-sans my-3">Book List</h1>
           <div></div>
@@ -220,7 +237,7 @@ export default function Store() {
             <div className="popOut">
               <div class="relative z-0 flex flex-col min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
                 <div class="pt-6 mb-0 text-center bg-white border-b-0 rounded-t-2xl">
-                  <h5>Register</h5>
+                  <h5>Edit Book</h5>
                 </div>
                 <div class="flex-auto p-6">
                   <form role="form text-left">

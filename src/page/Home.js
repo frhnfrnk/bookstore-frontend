@@ -90,7 +90,7 @@ export default function Home() {
         <div className="grid grid-cols-4 gap-5">
           {bookList.map((val, index) => {
             return (
-              <div class="w-full m-[10px] mx-auto h-[60vh]">
+              <div key={index} class="w-full m-[10px] mx-auto h-[60vh]">
                 <div class="relative mb-5 flex flex-col min-w-0 break-words bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border h-[100%] pb-5 px-2">
                   <div class="relative h-[60%] w-full py-2 rounded-2xl">
                     <img

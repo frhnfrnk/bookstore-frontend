@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { FunctionContext } from "../context/FunctionContext";
 import Loading from "../component/Loading/loading";
 import { Helmet } from "react-helmet";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Author() {
   const { author, functions, loading } = useContext(FunctionContext);
@@ -85,6 +87,7 @@ export default function Author() {
         )}
 
         {loading ? <Loading /> : null}
+        <ToastContainer />
       </div>
     </Container>
   );

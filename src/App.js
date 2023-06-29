@@ -9,6 +9,8 @@ import { SwitchThemeProvider } from "./context/SwitchTheme";
 import { StoreProvider } from "./context/StoreContext";
 import SignupPage from "./page/Signup";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -38,6 +40,7 @@ function App() {
           </Routes>
         </StoreProvider>
       </SwitchThemeProvider>
+      <ToastContainer />
     </BrowserRouter>
   );
 }

@@ -1,30 +1,15 @@
-import React, { useState, useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBars,
-  faCar,
-  faCartShopping,
-  faCouch,
-  faGlasses,
-  faHeart,
-  faHouse,
-  faLemon,
-  faMobile,
-  faMobileScreenButton,
-  faShirt,
-  faSocks,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
 import ButtonSwitch from "../Button/btnSwitch";
 import { SwitchThemeContext } from "../../context/SwitchTheme";
 import { MenuStaffItems } from "./menuStaffItem";
 import { MenuManagerItems } from "./menuManagerItem";
 
 export default function Sidebar() {
-  const { theme, setTheme } = useContext(SwitchThemeContext);
+  const { theme } = useContext(SwitchThemeContext);
 
   const activePage = window.location.href;
 
@@ -33,7 +18,7 @@ export default function Sidebar() {
   setTimeout(function () {
     for (var i = 0; i < navBar.length; i++) {
       const navLinks = document.getElementsByClassName("menu_link").item(i);
-      if (navLinks.href == activePage) {
+      if (navLinks.href === activePage) {
         navLinks.classList.add("active");
       }
       navLinks.addEventListener("click", () => {
@@ -64,7 +49,7 @@ export default function Sidebar() {
             <ul>
               {MenuStaffItems.map((item, index) => {
                 return (
-                  <li className="menu_bar">
+                  <li key={index} className="menu_bar">
                     <Link className="menu_link" to={item.url}>
                       <FontAwesomeIcon icon={item.icon} />
                       {item.title}
@@ -79,7 +64,7 @@ export default function Sidebar() {
             <ul>
               {MenuManagerItems.map((item, index) => {
                 return (
-                  <li className="menu_bar hover:text-pink-700">
+                  <li key={index} className="menu_bar hover:text-pink-700">
                     <Link className="menu_link" to={item.url}>
                       <FontAwesomeIcon icon={item.icon} />
                       {item.title}
@@ -91,7 +76,7 @@ export default function Sidebar() {
           </div>
           <button
             type="button"
-            class="w-1/2 mx-auto my-5 inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs"
+            className="w-1/2 mx-auto my-5 inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all rounded-lg cursor-pointer bg-gradient-to-tl from-purple-700 to-pink-500 leading-pro text-xs ease-soft-in tracking-tight-soft shadow-soft-md bg-150 bg-x-25 hover:scale-102 active:opacity-85 hover:shadow-soft-xs"
             onClick={() => {
               localStorage.removeItem("staff_id");
               localStorage.removeItem("refresh_token");

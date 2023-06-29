@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { createContext, useState } from "react";
+import { toast } from "react-toastify";
 
 export const FunctionContext = createContext();
 
@@ -33,6 +34,15 @@ export const FunctionProvider = (props) => {
   };
 
   const fetchData = async () => {
+    toast.info("Fetching data...", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
+
     try {
       setLoading(true);
       let resBook = await axios.get("/api/book");
@@ -45,6 +55,14 @@ export const FunctionProvider = (props) => {
   };
 
   const fetchCart = async () => {
+    toast.info("Fetching data...", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
     let staff = localStorage.getItem("staff_id");
     try {
       let res = await axios.get(`/api/cart`, {
@@ -60,6 +78,14 @@ export const FunctionProvider = (props) => {
   };
 
   const fetchSearch = async () => {
+    toast.info("Fetching data...", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
     if (search == "") {
       fetchData();
     } else {
@@ -79,6 +105,14 @@ export const FunctionProvider = (props) => {
   };
 
   const fetchPublisher = async () => {
+    toast.info("Fetching data...", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
     try {
       setLoading(true);
 
@@ -93,6 +127,14 @@ export const FunctionProvider = (props) => {
   };
 
   const fetchCategory = async () => {
+    toast.info("Fetching data...", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
     try {
       let res = await axios.get(`/api/book/category`);
       let result = res.data;
@@ -103,6 +145,14 @@ export const FunctionProvider = (props) => {
   };
 
   const fetchAuthor = async () => {
+    toast.info("Fetching data...", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
     try {
       let res = await axios.get(`/api/book/author`);
       let result = res.data;
@@ -113,6 +163,14 @@ export const FunctionProvider = (props) => {
   };
 
   const fetchCustomer = async () => {
+    toast.info("Fetching data...", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
     try {
       let res = await axios.get(`/api/customer`);
       let result = res.data;
@@ -123,6 +181,14 @@ export const FunctionProvider = (props) => {
   };
 
   const fetchStore = async () => {
+    toast.info("Fetching data...", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
     try {
       let res = await axios.get(`/api/store/`);
       let result = res.data;
@@ -133,6 +199,14 @@ export const FunctionProvider = (props) => {
   };
 
   const fetchStaff = async () => {
+    toast.info("Fetching data...", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
     try {
       let res = await axios.get(`/api/staff`);
       let result = res.data;
@@ -143,6 +217,14 @@ export const FunctionProvider = (props) => {
   };
 
   const fetchAddress = async () => {
+    toast.info("Fetching data...", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
     try {
       let res = await axios.get(`/api/address`);
       let result = res.data;
@@ -160,6 +242,14 @@ export const FunctionProvider = (props) => {
   };
 
   const fetchHistory = async () => {
+    toast.info("Fetching data...", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
     try {
       let res = await axios.get(`/api/order/history`);
       let result = res.data;
@@ -170,6 +260,14 @@ export const FunctionProvider = (props) => {
   };
 
   const fetchLanguage = async () => {
+    toast.info("Fetching data...", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      draggable: true,
+      progress: undefined,
+    });
     try {
       let res = await axios.get(`/api/book/language`);
       let result = res.data;
